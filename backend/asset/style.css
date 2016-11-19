@@ -1,0 +1,446 @@
+html {
+	font-family: 'Roboto', sans-serif;
+	color: #484848;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #f5f5f5;
+}
+#map-canvas {
+	width: 50%;
+	float: left;
+	height: 100%;
+}
+
+section {
+	width: 100%;
+	height: 350px;
+}
+
+/*NAVBAR===============================================================================*/
+
+.navbar {
+	height: 80px;
+	background-color: #fafafa;
+}
+
+.navbar .logo {
+	margin: 20px;
+	margin-left: 20px;
+	width: 18%;
+}
+
+.navbar ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	display: inline-block;
+	overflow: hidden;
+	float: right;
+}
+
+.navbar li {
+	/*
+	border-style: solid;
+	border-width: thin;
+	*/
+	margin-top: 5px;
+	border-color: #878787;
+	float: left;
+}
+
+.navbar li a {
+	text-align: center;
+	padding: 28px 25px;
+	color: #FBC02D;
+	display: block;
+	text-decoration: none;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+.navbar li a:hover {
+	color: #FFF;
+	background-color: #FBC02D;
+}
+
+.navbar li ul li a {
+	margin-top: -5px;
+	background-color: #FFF;
+	text-align: center;
+	padding: 28px 25px;
+	color: #FBC02D;
+	visibility: hidden;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+.navbar li:hover ul li a {
+	visibility: visible;
+}
+
+.navbar li:hover ul li:hover {
+	color: #FFF;
+	background-color: #FBC02D;
+}
+
+/*END NAVBAR===============================================================================*/
+
+/*FOOTER===============================================================================*/
+
+.footer {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	height: 250px;
+	background-color: #fafafa;
+	margin-bottom: -7px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.footer .logo {
+	float: left;
+	margin: 75px;
+	margin-left: 75px;
+	width: 15em;
+}
+
+@media only screen and (max-width:1135px){
+	.sembunyikan-bila-kecil {
+		display: none;
+	}
+}
+
+.footer-content {
+	margin-top: 20px;
+	margin-left: 5%;
+	float: left;
+	color: #484848;
+}
+
+.footer-content .sec {
+	font-weight:500;
+}
+
+.footer ul {
+	list-style-type: none;
+}
+
+.footer ul li {
+	margin-left: -40px;
+	margin-bottom: 5px;
+	font-weight:300;
+}
+
+.footer ul li a {
+	color: #FBC02D;
+	text-decoration: none;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+.footer p {
+	font-weight:300;
+}
+
+.footer ul li a:hover {
+	color: #484848;
+}
+
+.footer-copyright {
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+	height: 10px;
+	background-color: #FBC02D;
+}
+
+/*END FOOTER===============================================================================*/
+
+.text-kuning {
+	color: #FBC02D;
+}
+
+.text-putih {
+	color: #FFF;
+}
+
+.landing1 {
+	background-image: url(/nginapterus/backend/asset/img/landing1-background.png);
+	background-size: cover;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.landing1-black {
+	width: 100%;
+	height: 350px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.container {
+	margin-top: -7px;
+	padding-bottom: -7px;
+}
+
+.tebal {
+	font-weight: bold;
+}
+
+.pengenalan {
+	font-size: 1.8em;
+	font-weight: 100;
+	padding-top: 25px;
+	color: #fff;
+}
+
+.pengenalan2 {
+	font-size: 1.8em;
+	font-weight: 100;
+	padding-top: 150px;
+}
+
+.pengenalan3 {
+	font-size: 1.8em;
+	font-weight: 100;
+	padding-top: 75px;
+}
+
+.logo-landing {
+	width: 35%;
+	margin-top: 95px;
+}
+
+.host-landing-browse {
+	width: 100%;
+	height: auto;
+}
+
+.host-landing-detail {
+	display: inline-block;
+	width: 250px;
+	height: 300px;
+	background-color: #F3F3F3;
+	margin: 25px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	background-size: cover;
+}
+
+.host-landing-detail img {
+	width: 100%;
+	height: 200px;
+	background-size: cover;
+}
+
+.host-landing-detail-content {
+	margin: 12px;
+	text-align: left;
+}
+
+.host-landing-detail-content a {
+	color: #263238;
+	text-decoration: none;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+.host-landing-detail-content a:hover {
+	color: #FBC02D;
+}
+
+.host-landing-detail-content .judul {
+	font-size: 20px;
+}
+
+.host-landing-detail-content .bulat-kecil {
+	margin-left: 10px;
+	width: 28px;
+	height: auto;
+	border-radius: 100%;
+	float: right;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+.host-landing-detail-content .bulat-kecil:hover {
+	margin-left: 10px;
+	width: 28px;
+	height: auto;
+	border-radius: 100%;
+	float: right;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.host-landing-detail-content .username {
+	font-size: 12px;
+}
+
+.host-landing-detail-content .harga {
+	font-size: 22px;
+	margin-top: 8px;
+}
+
+.host-landing-detail-content .verifikasi {
+	margin-top: -25px;
+	float: right;
+}
+
+.host-landing-detail-content .verifikasi img {
+	border-radius: 100%;
+	width: 24px;
+	height: auto;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+.host-landing-detail-content .verifikasi img:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/*PAGE TENTANG===============================================================================*/
+
+.judul-tentang {
+	margin-top:50px;
+	font-weight:300;
+}
+
+.konten-tentang {
+	font-size: 20px;
+	font-weight: 300;
+	text-align: justify;
+	margin: 40px 75px 50px 75px;
+}
+
+.unggul {
+	display: inline-block;
+	margin: 0 75px;
+}
+
+.unggul img {
+	width: 150px;
+	height: auto;
+}
+
+/*END PAGE TENTANG===============================================================================*/
+
+/*LOGIN===============================================================================*/
+
+input {
+	cursor: pointer;
+	border: 2px solid;
+	border-color: #878787;
+	font-weight: bold;
+	color: #484848;
+	font-size: 15px;
+	height: 25px;
+	border-radius: 5px;
+	background-color: #fafafa;
+	width: 90%;
+	padding-left: 20px;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+.panel-login {
+	padding: 8% 0;
+	width: 350px;
+	font-size: 16px;
+	font-weight: 100;
+}
+
+.password {
+	margin-top: 25px;
+}
+
+.masuk {
+	margin-top: 25px;
+}
+
+input[type = submit] {
+    padding: 5px 15px; 
+    background: #4CAF50; 
+    font-weight: bold;
+    color: #FFF;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+    width: 125px;
+    height: 50px;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+input[type = submit]:hover {
+	background: #F5F5F5;
+	color: #4CAF50;
+}
+
+.text-belum-punya-akun a {
+	font-size: 15px;
+	margin-top: 18px;
+	color: #03A9F4;
+	text-decoration: none;
+	float: left;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+.text-belum-punya-akun a:hover {
+	color: #4FC3F7;
+	text-decoration: underline;
+}
+/*END LOGIN===============================================================================*/
+
+/*APABILA USER TELAH LOGIN, REDIRECT KE BERANDA===============================================================================*/
+
+
+
+/*END APABILA USER TELAH LOGIN, REDIRECT KE BERANDA===============================================================================*/
