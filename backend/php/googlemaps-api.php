@@ -38,7 +38,7 @@
             $url = rawurlencode($url);
             return $url;
         }
-        $query = mysqli_query($koneksi, "select nama_host,harga_host,lat,lng,tipe_host,username from tbl_host inner join tbl_pengguna on tbl_host.id_pengguna = tbl_pengguna.id_pengguna INNER join tbl_akun on tbl_pengguna.id_pengguna = tbl_akun.id_pengguna");
+        $query = mysqli_query($koneksi, "select nama_host,harga_host,lat,lng,tipe_host,username from tbl_host inner join tbl_pengguna on tbl_host.id_pengguna = tbl_pengguna.id_pengguna INNER join tbl_akun on tbl_pengguna.id_pengguna = tbl_akun.id_akun");
         while ($data = mysqli_fetch_array($query)) {
             $nama_host = $data['nama_host'];
             $harga_host = $data['harga_host'];

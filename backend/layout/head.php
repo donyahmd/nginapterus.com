@@ -22,7 +22,7 @@
  			<li><a href="tentang.php">TENTANG</a></li>
  			<?php
  				if(isset($_SESSION['username'])) { ?>
- 				<li><a href="hostsaya.php" class="nav-user"><?php echo $_SESSION['username'];?></a>
+ 				<li><a href="beranda.php" class="nav-user"><?php echo $_SESSION['username'];?></a>
  					<ul>
  						<li><a href="backend/php/logout.php">Logout</a></li>
  					</ul>

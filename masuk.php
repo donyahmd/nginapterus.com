@@ -8,7 +8,9 @@
 		$cek_akun = mysqli_num_rows($sql);
 			if($cek_akun > 0) {
 				$_SESSION['username'] = $username;
-				echo "<script>window.open('profile.php','_self')</script>";
+				mysqli_query($koneksi, "update tbl_akun set terakhir_login=now() where username = '$username'");
+				//echo "<script>window.open('beranda.php','_self')</script>";
+				header("Refresh:0;url=beranda.php");
 			}
 			else {
 				echo "<script>alert('Username atau password ada yang salah!')</script>";
@@ -17,13 +19,13 @@
 ?>
 	<main>
 		<center>
-				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" accept-charset="utf-8" class="panel-login">
+				<form action="" method="POST" accept-charset="utf-8" class="panel-login">
 					<h1>LOGIN</h1>
 					<div class="username">
 						<!--<p style="text-align:left;">Username</p>-->
 						<input type="text" name="username" placeholder="Username">
 					</div>
-					<div class="password">
+					<div class="jarak">
 						<!--<p style="text-align:left;">Password</p>-->
 						<input type="password" name="password" placeholder="Password">
 					</div>

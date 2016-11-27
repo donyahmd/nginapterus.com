@@ -7,15 +7,15 @@
 		</div>
 		</section>
 		<section>
-			<div id="map-canvas"></div>
 			<center><div class="pengenalan2">Puluhan <b class="text-kuning">Hotel, Homestay,</b> dan <b class="text-kuning">Guest House</b> telah bergabung dengan kami.</div>
-			<p style="font-weight:100;font-size:15px;">*Klik marker disamping untuk melihat detail.</p>
+			<p style="font-weight:100;font-size:15px;">*Klik marker dibawah untuk melihat detail.</p>
 			</center>
+			<div id="map-canvas"></div>
 		</section>
 		<section class="host-landing-browse">
 			<center><div class="pengenalan3">Pilih <b class="text-kuning">Hotel, Homestay,</b> dan <b class="text-kuning">Guest House</b> yang ingin anda tinggali.</div>
 			<?php 
-			$sql = "select nama_host,harga_host,username,verifikasi,foto_ava from tbl_host inner join tbl_pengguna on tbl_host.id_pengguna = tbl_pengguna.id_pengguna INNER join tbl_akun on tbl_pengguna.id_pengguna = tbl_akun.id_pengguna limit 4";
+			$sql = "select nama_host,harga_host,username,verifikasi,foto_ava from tbl_host inner join tbl_pengguna on tbl_host.id_pengguna = tbl_pengguna.id_pengguna INNER join tbl_akun on tbl_pengguna.id_pengguna = tbl_akun.id_akun limit 4";
 			$query = mysqli_query($koneksi, $sql);
 				while ($data = mysqli_fetch_array($query)) {
 					$nama_host = $data['nama_host'];

@@ -1,23 +1,30 @@
-<?php include('backend/layout/head.php');?>
+<?php 
+	include('backend/layout/head.php');
+	$username = $_POST['username'];
+	$password = md5($_POST['password']);
+	if (isset($_POST['daftar'])) {
+	$query = "insert into tbl_akun values (NULL,'$username','$password',NOW(),'192.nginapterus',NOW())";
+			mysqli_query($koneksi, $query);
+	}
+?>
 	<main>
 		<center>
-				<form action="backend/php/daftar.php" method="post" accept-charset="utf-8" class="panel-login">
+				<form action="" method="post" accept-charset="utf-8" class="panel-login daftar">
 					<h1>Daftar</h1>
 					<div class="username">
-						<p style="text-align:left;">Username</p>
-						<input type="text" name="username">
+						<input type="text" name="username" placeholder="Username" required="">
 					</div>
-					<div class="password">
-						<p style="text-align:left;">Password</p>
-						<input type="password" name="password">
+					<div class="jarak">
+						<input type="password" name="password" placeholder="Password" required="">
 					</div>
-					<div class="password">
-						<p style="text-align:left;">Konfirmasi Password</p>
-						<input type="password" name="konpassword">
+					<div class="jarak">
+						<input type="password" name="konpassword" placeholder="Konfirmasi Password" required="">
 					</div>
-
-					<div class="login">
-						<input type="submit" value="DAFTAR">
+					<div class="jarak">
+						<input type="email" name="email" placeholder="Email" required="">
+					</div>
+					<div class="daftar">
+						<input type="submit" name="daftar" value="DAFTAR">
 					</div>
 					<div class="belum-punya-akun">
 						<div class="text-belum-punya-akun">
@@ -27,4 +34,6 @@
 				</form>
 		</center>
 	</main>
-<?php include('backend/layout/footer.php');?>
+<?php 
+	include('backend/layout/footer.php');
+?>
