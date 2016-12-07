@@ -23,9 +23,9 @@
  			<?php
  				if(isset($_SESSION['username'])) { ?>
  				<li><a href="beranda.php" class="nav-user"><?php echo $_SESSION['username'];?></a>
- 					<ul>
+ 					<!--<ul>-->
  						<li><a href="backend/php/logout.php">Logout</a></li>
- 					</ul>
+ 					<!--</ul>-->
  				</li>
 			<?php
  				}

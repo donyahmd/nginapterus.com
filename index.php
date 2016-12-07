@@ -15,9 +15,10 @@
 		<section class="host-landing-browse">
 			<center><div class="pengenalan3">Pilih <b class="text-kuning">Hotel, Homestay,</b> dan <b class="text-kuning">Guest House</b> yang ingin anda tinggali.</div>
 			<?php 
-			$sql = "select nama_host,harga_host,username,verifikasi,foto_ava from tbl_host inner join tbl_pengguna on tbl_host.id_pengguna = tbl_pengguna.id_pengguna INNER join tbl_akun on tbl_pengguna.id_pengguna = tbl_akun.id_akun limit 4";
-			$query = mysqli_query($koneksi, $sql);
-				while ($data = mysqli_fetch_array($query)) {
+			$query = "select id_host,nama_host,harga_host,username,verifikasi,foto_ava from tbl_host inner join tbl_pengguna on tbl_host.id_pengguna = tbl_pengguna.id_pengguna INNER join tbl_akun on tbl_pengguna.id_pengguna = tbl_akun.id_akun limit 4";
+			$sql = mysqli_query($koneksi, $query);
+				while ($data = mysqli_fetch_array($sql)) {
+					$id_host = $data['id_host'];
 					$nama_host = $data['nama_host'];
 					$harga_host = $data['harga_host'];
 					$username = $data['username'];
@@ -25,9 +26,9 @@
 					$foto_ava = $data['foto_ava'];
 			?>
 			<div class="host-landing-detail">
-				<a href="#"><img src="user/donyahmd/1/kost.jpg"></a>
+				<a href="host.php?id=<?php echo "$id_host";?>"><img src="user/donyahmd/1/kost.jpg"></a>
 				<div class="host-landing-detail-content">
-					<a href="#" class="tebal judul"><?php echo "$nama_host";?></a><img class="bulat-kecil" src="user/<?php echo $username."/".$foto_ava?>">
+					<a href="host.php?id=<?php echo "$id_host";?>" class="tebal judul"><?php echo "$nama_host";?></a><img class="bulat-kecil" src="user/<?php echo $username."/".$foto_ava;?>">
 					<br>
 					<a href="#" class="username"><?php echo "$username";?></a>
 					<br>
@@ -47,8 +48,15 @@
 				}
 			?>
 		</section>
-		<section>
-			
+		<section class="landing-daftar">
+			<center>
+			<h2>Ingin menyewakan tempat anda?</h2>
+			<a href="daftar.php">
+			<div class="daftar daftar-landing">
+				<input type="submit" name="daftar" value="DAFTAR SEKARANG">
+			</div>
+			</a>
+			</center>
 		</section>
 	</main>
 <?php include('backend/php/googlemaps-api.php'); ?>

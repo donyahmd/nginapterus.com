@@ -8,16 +8,39 @@ body {
 	padding: 0;
 	background-color: #f5f5f5;
 }
+
 #map-canvas {
 	//width: 50%;
 	//float: left;
 	height: 100%;
 }
 
+#map-canvas-host {
+	width: 100%;
+	height: 150px;
+}
+
 section {
 	width: 100%;
 	height: 350px;
 }
+
+a {
+	color: #FAFAFA;
+	text-decoration: none;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+a:hover {
+	color: #FBC02D;
+}
+
 
 /*NAVBAR===============================================================================*/
 
@@ -91,7 +114,7 @@ section {
 	visibility: visible;
 }
 
-.navbar li:hover ul li:hover {
+.navbar li:hover ul li:hover {	
 	color: #FFF;
 	background-color: #FBC02D;
 }
@@ -241,6 +264,7 @@ section {
 	margin: 25px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	background-size: cover;
+	margin-bottom: 50px;
 }
 
 .host-landing-detail img {
@@ -327,6 +351,16 @@ section {
 
 .host-landing-detail-content .verifikasi img:hover {
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.landing-daftar {
+	background-color: #4CAF50;
+}
+
+.landing-daftar h2 {
+	color: #fff;
+	font-weight: 400;
+	padding-top: 25px;
 }
 
 /*PAGE TENTANG===============================================================================*/
@@ -447,18 +481,145 @@ input[type = submit]:hover {
 /*APABILA USER TELAH LOGIN, REDIRECT KE BERANDA===============================================================================*/
 
 .welcome {
-	
+	font-weight: 100;
+	width: 20em;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.menu {
+	//width: 350px;
 }
 
 .menu ul{
+	display: inline-block;
 	list-style-type: none;
+}
+
+.menu ul li {
+	padding: 20px 50px;
+	//margin-top: 40px;
+}
+
+.menu ul li a {
+	padding: 20px 50px;
+	background-color: #FBC02D;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+.menu ul li a:hover {
+	background-color: #FAFAFA;
 }
 
 /*END APABILA USER TELAH LOGIN, REDIRECT KE BERANDA===============================================================================*/
 
 
-/*APABILA USER TELAH LOGIN, REDIRECT KE BERANDA===============================================================================*/
+/*HOST YANG DIPILIH===============================================================================*/
+
+.host-cover {
+	width: 100%;
+	height: 350px;
+}
+
+.host-cover h1 {
+	margin-left: 100px;
+	position: absolute;
+	margin-top: 100px;
+	padding: 10px;
+	font-size: 3em;
+	font-weight: 300;
+	background-color: #FBC02D;
+	color: #fff;
+}
+
+.host-cover h3 {
+	margin-left: 100px;
+	position: absolute;
+	margin-top: 185px;
+	padding: 7px;
+	font-size: 1.2em;
+	font-weight: 300;
+	background-color: #FBC02D;
+	color: #fff;
+}
+
+.host-cover img {
+	background-size: cover;
+	width: 100%;
+	height: 350px;
+}
+
+.host-content {
+	width: 90%;
+	height: auto;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.host-content .header-host img {
+	border-radius: 100%;
+	width: 24px;
+	height: auto;
+}
+
+.host-content .content {
+	margin: 20px 100px;
+}
+
+.host-content .header-host h1 {
+	font-size: 3em;
+	font-weight: 300;
+}
+
+.host-content .header-host h2 {
+	margin-top: 0;
+	font-size: 2.5em;
+}
+
+.host-content .header-host h3 {
+	margin-top: -25px;
+	font-size: 1.2em;
+	font-weight: 300;
+}
+
+.host-content .header-host h4 {
+	margin-top: -42px;
+}
+
+.host-content .deskripsi-host h3 {
+	margin-top: 20px;
+	font-size: 1.7em;
+	font-weight: 250;
+}
+
+.host-content .deskripsi-host p {
+	margin-top: -20px;
+	text-align: justify;
+}
+
+.host-content .alamat-host h3 {
+	margin-top: 20px;
+	font-size: 1.7em;
+	font-weight: 250;
+}
+
+.host-content .alamat-host p {
+	margin-top: -20px;
+	text-align: justify;
+}
+
+.alamat-host {
+	width: 100%;
+	height: 250px;
+}
+
+.maps-nama-host {
+	color: #263238;
+}
 
 
-
-/*END APABILA USER TELAH LOGIN, REDIRECT KE BERANDA===============================================================================*/
+/*END HOST YANG DIPILIH===============================================================================*/
