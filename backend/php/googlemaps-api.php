@@ -30,23 +30,16 @@
             }
 
         <?php
-        function slugify($url)
-        {
-            $url = trim($url);
-            $url = str_replace(" ","-",$url);
-            $url = str_replace("/","-slash-",$url);
-            $url = rawurlencode($url);
-            return $url;
-        }
-        $query = mysqli_query($koneksi, "select nama_host,harga_host,lat,lng,tipe_host,username from tbl_host inner join tbl_pengguna on tbl_host.id_pengguna = tbl_pengguna.id_pengguna INNER join tbl_akun on tbl_pengguna.id_pengguna = tbl_akun.id_akun");
+        $query = mysqli_query($koneksi, "select id_host,nama_host,harga_host,lat,lng,tipe_host,username from tbl_host inner join tbl_pengguna on tbl_host.id_pengguna = tbl_pengguna.id_pengguna INNER join tbl_akun on tbl_pengguna.id_pengguna = tbl_akun.id_akun");
         while ($data = mysqli_fetch_array($query)) {
+            $id_host = $data['id_host'];
             $nama_host = $data['nama_host'];
             $harga_host = $data['harga_host'];
             $lat = $data['lat'];
             $lon = $data['lng'];
             $tipe_host = $data['tipe_host'];
             $username_host = $data['username'];
-            echo ("addMarker($lat, $lon, '<b><a href=". $username_host . "/" . slugify($nama_host) .">$nama_host</a></b><br>IDR $harga_host<br><i>$tipe_host</i>');\n");                      
+            echo ("addMarker($lat, $lon, '<b><a href=host.php?id=". $id_host . ">$nama_host</a></b><br>IDR $harga_host<br><i>$tipe_host</i>');\n");
         }
         ?>
 

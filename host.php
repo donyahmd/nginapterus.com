@@ -1,21 +1,34 @@
 <?php 
 include('backend/layout/head.php');
 $id = $_GET['id'];
-$query = "select * from tbl_host inner join tbl_akun on tbl_host.id_pengguna = tbl_akun.id_akun where id_host=$id";
+$query = "select * from tbl_host inner join tbl_akun on tbl_host.id_pengguna = tbl_akun.id_akun inner join tbl_pengguna on tbl_akun.id_akun = tbl_pengguna.id_pengguna where id_host=$id";
 $sql = mysqli_query($koneksi,$query);
 while ($data = mysqli_fetch_array($sql)) {
+	$nama_host = $data['nama_host'];
+	$username = $data['username'];
+	$foto_ava = $data['foto_ava'];
 ?>
 	<main>
 		<section class="host-cover">
-				<h1><?php echo $data['nama_host'];?></h1>
-				<h3><?php echo $data['username'];?></h3>
+				<h1><?php echo $nama_host;?></h1>
+				<h3><?php echo $username;?></h3>
 				<img src="user/donyahmd/1/1.jpg">
+		</section>
+		<section class="host-user">
+			<center>
+				<img class="host-user-bulat-kecil" src="user/<?php echo $username."/".$foto_ava;?>">
+				<br>
+				<h3 style="margin-top:0px;"><?php echo $username?></h3>
+				<img class="host-user-verified" src="backend/asset/img/verified.png">
+			</center>
 		</section>
 		<section class="host-content">
 		<div class="content">
 			<div class="header-host">
-				<h2>IDR<?php echo $data['harga_host'];?> <input type="submit" value="Booking"></h2>
-				<h3><?php echo $data['username'];?> <img src="backend/asset/img/verified.png"></h3>	
+				<h2>IDR<?php echo $data['harga_host'];?>
+				<br>
+					<a href="booking.php?id=<?php echo $id?>"><input type="submit" name="booking" value="Booking"></a>
+				</h2>
 			</div>
 			<div class="alamat-host">
 				<div class="alamat-host-kiri">
