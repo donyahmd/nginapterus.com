@@ -493,6 +493,8 @@ input[type = submit]:hover {
 
 .menu {
 	//width: 350px;
+	width: 100%;
+	background-color: #FBC02D;
 }
 
 .menu ul{
@@ -502,12 +504,12 @@ input[type = submit]:hover {
 
 .menu ul li {
 	display: inline-block;
-	padding: 20px 50px;
+	padding: 20px 0px;
 	//margin-top: -40px;
 }
 
 .menu ul li a {
-	padding: 20px 50px;
+	padding: 20px 121px;
 	background-color: #FBC02D;
 	-webkit-transition: width 2s; /* Safari */
 	transition: width 2s;
@@ -665,3 +667,13 @@ input[type = submit]:hover {
 }
 
 /*END PENCARIAN HOST===============================================================================*/
+
+/*BOOKING HOST===============================================================================*/
+
+.check-in-out-text {
+	margin-bottom: 5px;
+	font-weight: 500;
+	font-size: 20px;
+}
+
+/*END BOOKING HOST===============================================================================*/

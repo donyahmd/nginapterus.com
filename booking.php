@@ -4,7 +4,7 @@ include('backend/layout/head.php');
 		header("location:masuk.php");
 	}
 $id = $_GET['id'];
-$query = "select * from tbl_host inner join tbl_akun on tbl_host.id_pengguna = tbl_akun.id_akun inner join tbl_pengguna on tbl_akun.id_akun = tbl_pengguna.id_pengguna where id_host=$id";
+$query = "select * from tbl_host inner join tbl_akun on tbl_host.username = tbl_akun.username inner join tbl_pengguna on tbl_akun.username = tbl_pengguna.username where id_host=$id";
 $sql = mysqli_query($koneksi,$query);
 while ($data = mysqli_fetch_array($sql)) {
 	$nama_host = $data['nama_host'];
@@ -26,27 +26,15 @@ while ($data = mysqli_fetch_array($sql)) {
 			</center>
 		</section>
 		<section class="host-content">
-		<div class="content">
-			<div class="header-host">
-				<h2>IDR<?php echo $data['harga_host'];?>
-				<br>
-					<a href="booking.php?id=<?php echo $id?>"><input type="submit" name="booking" value="Booking"></a>
-				</h2>
+			<div class="content">
+			<center><h2>Formulir Pemesanan</h2></center>
+				<form action="" method="get">
+					<p class="check-in-out-text">Check in</p>
+					<input type="date" name="tgl_checkin">
+					<p class="check-in-out-text">Check out</p>
+					<input type="date" name="tgl_checkin">
+				</form>
 			</div>
-			<div class="alamat-host">
-				<div class="alamat-host-kiri">
-					<h3>Alamat</h3>
-					<p><?php echo $data['alamat_host'];?></p>
-				</div>
-				<div class="alamat-host-kanan">
-					<div id="map-canvas-host"></div>
-				</div>
-			</div>
-			<div class="deskripsi-host">
-				<h3>Deskripsi Host</h3>
-				<p><?php echo $data['deskripsi_host'];?></p>
-			</div>
-		</div>
 		</section>
 	</main>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBglmCLJWoje3Mmcr0I-uMZNZcVjyJIiko&callback=initMap" type="text/javascript"></script>

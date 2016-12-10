@@ -13,7 +13,7 @@
 	<main>
 		<div class="menu">
 			<ul>
-				<li><a href="" title=""></a></li>
+				<li><a href="beranda.php">Beranda</a></li>
 				<li><a href="#">Profile Saya</a></li>
 				<li><a href="#">Host Saya</a></li>
 				<li><a href="#">Pengaturan</a></li>
@@ -23,8 +23,7 @@
 			<center>
 				<img class="host-user-bulat-kecil" src="user/<?php echo $username."/".$foto_ava;?>">
 				<br>
-				<p></p>
-				<h3 style="margin-top:0px;">Selamat datang <?php echo $username?>!</h3>
+				<h3 style="margin-top:0px;"><?php echo $username?></h3>
 				<img class="host-user-verified" src="backend/asset/img/verified.png">
 			</center>
 		</section>
