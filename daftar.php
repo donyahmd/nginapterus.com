@@ -1,10 +1,11 @@
 <?php 
 	include('backend/layout/head.php');
-	$username = $_POST['username'];
-	$password = md5($_POST['password']);
 	if (isset($_POST['daftar'])) {
-	$query = "insert into tbl_akun values (NULL,'$username','$password',NOW(),'192.nginapterus',NOW())";
-			mysqli_query($koneksi, $query);
+	$username = mysqli_escape_string($koneksi, $_POST['username']);
+	$password = md5(mysqli_escape_string($koneksi, $_POST['password']));
+	$query = "insert into tbl_akun values (NULL,'$username','$password',NOW(),'192.nginapterus',NOW());insert into tbl_pengguna(username) values ('$username');";
+	$dwad = mysqli_multi_query($koneksi, $query);
+	var_dump($query);
 	}
 ?>
 	<main>

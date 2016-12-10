@@ -15,7 +15,7 @@
 		<section class="host-landing-browse">
 			<center><div class="pengenalan3">Pilih <b class="text-kuning">Hotel, Homestay,</b> dan <b class="text-kuning">Guest House</b> yang ingin anda tinggali.</div>
 			<?php 
-			$query = "select id_host,nama_host,harga_host,username,verifikasi,foto_ava from tbl_host inner join tbl_pengguna on tbl_host.id_pengguna = tbl_pengguna.id_pengguna INNER join tbl_akun on tbl_pengguna.id_pengguna = tbl_akun.id_akun limit 4";
+			$query = "select * from tbl_host inner join tbl_pengguna on tbl_host.username = tbl_pengguna.username INNER join tbl_akun on tbl_pengguna.username = tbl_akun.username limit 4";
 			$sql = mysqli_query($koneksi, $query);
 				while ($data = mysqli_fetch_array($sql)) {
 					$id_host = $data['id_host'];

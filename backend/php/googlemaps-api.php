@@ -30,7 +30,7 @@
             }
 
         <?php
-        $query = mysqli_query($koneksi, "select id_host,nama_host,harga_host,lat,lng,tipe_host,username from tbl_host inner join tbl_pengguna on tbl_host.id_pengguna = tbl_pengguna.id_pengguna INNER join tbl_akun on tbl_pengguna.id_pengguna = tbl_akun.id_akun");
+        $query = mysqli_query($koneksi, "select * from tbl_host inner join tbl_pengguna on tbl_host.username = tbl_pengguna.username INNER join tbl_akun on tbl_pengguna.username = tbl_akun.username");
         while ($data = mysqli_fetch_array($query)) {
             $id_host = $data['id_host'];
             $nama_host = $data['nama_host'];

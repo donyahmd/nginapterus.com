@@ -496,13 +496,14 @@ input[type = submit]:hover {
 }
 
 .menu ul{
-	display: inline-block;
 	list-style-type: none;
+	margin: 0;
 }
 
 .menu ul li {
+	display: inline-block;
 	padding: 20px 50px;
-	//margin-top: 40px;
+	//margin-top: -40px;
 }
 
 .menu ul li a {
@@ -653,3 +654,14 @@ input[type = submit]:hover {
 
 
 /*END HOST YANG DIPILIH===============================================================================*/
+
+/*PENCARIAN HOST===============================================================================*/
+
+.judul-cari {
+	font-size: 1.8em;
+	font-weight: 100;
+	padding-top: 50px;
+	padding-bottom: 25px;
+}
+
+/*END PENCARIAN HOST===============================================================================*/

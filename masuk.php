@@ -1,5 +1,5 @@
 <?php include('backend/layout/head.php');
-	if($_SERVER["REQUEST_METHOD"] == "POST") {
+	if(isset($_POST['masuk'])) {
 		$username = mysqli_real_escape_string($koneksi, $_POST['username']);
 		$password = mysqli_real_escape_string($koneksi, $_POST['password']);
 		$passwordmd5 = md5($password);
@@ -8,9 +8,11 @@
 		$cek_akun = mysqli_num_rows($sql);
 			if($cek_akun > 0) {
 				$_SESSION['username'] = $username;
+				$_SESSION['login'] = true;
+				session_start();
 				mysqli_query($koneksi, "update tbl_akun set terakhir_login=now() where username = '$username'");
 				//echo "<script>window.open('beranda.php','_self')</script>";
-				header("Refresh:0;url=beranda.php");
+				header("location:beranda.php");
 			}
 			else {
 				echo "<script>alert('Username atau password ada yang salah!')</script>";

@@ -1,7 +1,10 @@
 <?php 
 include('backend/layout/head.php');
+	if ($_SESSION['login'] == false){
+		header("location:masuk.php");
+	}
 $id = $_GET['id'];
-$query = "select * from tbl_host inner join tbl_akun on tbl_host.username = tbl_akun.username inner join tbl_pengguna on tbl_akun.username = tbl_pengguna.username where id_host=$id";
+$query = "select * from tbl_host inner join tbl_akun on tbl_host.id_pengguna = tbl_akun.id_akun inner join tbl_pengguna on tbl_akun.id_akun = tbl_pengguna.id_pengguna where id_host=$id";
 $sql = mysqli_query($koneksi,$query);
 while ($data = mysqli_fetch_array($sql)) {
 	$nama_host = $data['nama_host'];
