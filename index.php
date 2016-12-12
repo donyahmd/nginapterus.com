@@ -53,7 +53,7 @@
 			<h2>Ingin menyewakan tempat anda?</h2>
 			<a href="daftar.php">
 			<div class="daftar daftar-landing">
-				<input type="submit" name="daftar" value="DAFTAR SEKARANG">
+				<a href="daftar.php"><input type="submit" name="daftar" value="DAFTAR SEKARANG" style="width:25%;"></a>
 			</div>
 			</a>
 			</center>

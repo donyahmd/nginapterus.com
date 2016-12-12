@@ -11,14 +11,7 @@
 		$foto_ava = $data['foto_ava'];
 ?>
 	<main>
-		<div class="menu">
-			<ul>
-				<li><a href="beranda.php">Beranda</a></li>
-				<li><a href="#">Profile Saya</a></li>
-				<li><a href="#">Host Saya</a></li>
-				<li><a href="#">Pengaturan</a></li>
-			</ul>
-		</div>
+		<?php include('backend/layout/menu.php');?>
 		<section class="host-user">
 			<center>
 				<img class="host-user-bulat-kecil" src="user/<?php echo $username."/".$foto_ava;?>">

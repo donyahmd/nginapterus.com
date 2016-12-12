@@ -1,8 +1,8 @@
 <?php 
 	include('backend/layout/head.php');
-		if ($_SESSION['login'] == true){
+		if ($_SESSION['login'] == false){
 		header("location:beranda.php");
-	}
+		}
 	if (isset($_POST['daftar'])) {
 	$username = mysqli_escape_string($koneksi, $_POST['username']);
 	$password = md5(mysqli_escape_string($koneksi, $_POST['password']));

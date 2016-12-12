@@ -457,8 +457,8 @@ input[type = submit] {
 }
 
 input[type = submit]:hover {
-	background: #F5F5F5;
-	color: #4CAF50;
+	background: #B2B2B2;
+	//color: #4CAF50;
 }
 
 .text-belum-punya-akun a {
@@ -670,10 +670,128 @@ input[type = submit]:hover {
 
 /*BOOKING HOST===============================================================================*/
 
+.booking-content {
+	margin: 15px;
+	float: right;
+	width: 75%;
+	height: auto;
+	border-radius: 4px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .check-in-out-text {
 	margin-bottom: 5px;
 	font-weight: 500;
 	font-size: 20px;
 }
 
+.form-booking {
+	width: 50%;
+}
+
+input[type = radio] {
+}
+
 /*END BOOKING HOST===============================================================================*/
+
+/*SUKSES===============================================================================*/
+
+.judul-sukses {
+	margin-top:50px;
+	font-weight:300;
+}
+
+.konten-sukses {
+	font-size: 20px;
+	font-weight: 300;
+	text-align: center;
+	margin: 40px 75px 50px 75px;
+}
+
+.rincian-order {
+	width: 500px;
+		margin-bottom: 50px;
+}
+
+.rincian-order table {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.rincian-order tr {
+	background-color: #FBC02D;
+	color: white;
+	height: 50px;
+}
+
+.rincian-order tr td {
+	text-align: center;
+	font-size: 24px;
+	font-weight: 400;
+}
+
+/*END SUKSES===============================================================================*/
+
+/*HOST SAYA===============================================================================*/
+
+.edit-host {
+	background-color: #2196F3;
+	color: #FAFAFA;
+	width: 45%;
+	height: 50px;
+	float: left;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+.edit-host:hover {
+	background-color: #1976D2;
+}
+
+.hapus-host {
+	background-color: #f44336;
+	color: #FAFAFA;
+	width: 45%;
+	height: 50px;
+	float: right;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+.hapus-host:hover {
+	background-color: #d32f2f;
+}
+
+.aksi-edit-delete {
+	margin-top: 15px;
+}
+
+.tambah-host {
+	color: #FAFAFA;
+	background-image: url(/nginapterus/backend/asset/img/add-host.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	z-index: 100;
+	width: 90px;
+	height: 90px;
+	border-radius:100%;
+	background-color: #3AAC72;
+	bottom: 0;
+	right: 0;
+	position: fixed;
+	margin-bottom: 25px;
+	margin-right: 25px;
+}
+
+/*END HOST SAYA===============================================================================*/
