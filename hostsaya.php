@@ -47,9 +47,7 @@
 								<center><p>Hapus</p></center>
 							</div></a>
 					</div>
-					<div class="tambah-host">
-						<center></center>
-					</div>
+					<a href="tambahhost.php"><div class="tambah-host"></div></a>
 				</div>
 			</div>
 			<?php

@@ -792,6 +792,87 @@ input[type = radio] {
 	position: fixed;
 	margin-bottom: 25px;
 	margin-right: 25px;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+}
+
+.tambah-host:hover {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /*END HOST SAYA===============================================================================*/
+
+/*TAMBAH HOST===============================================================================*/
+
+.panel-tambah-host {
+	padding: 8% 0;
+	width: 550px;
+	font-size: 16px;
+	font-weight: 100;
+}
+
+.panel-tambah-host textarea {
+	cursor: pointer;
+	border: 2px solid;
+	border-color: #878787;
+	font-weight: bold;
+	color: #484848;
+	font-size: 15px;
+	border-radius: 5px;
+	background-color: #fafafa;
+	width: 90%;
+	padding-left: 20px;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+	width: 90%;
+}
+
+.panel-tambah-host select {
+	cursor: pointer;
+	border: 2px solid;
+	border-color: #878787;
+	font-weight: bold;
+	color: #484848;
+	font-size: 15px;
+	border-radius: 5px;
+	background-color: #fafafa;
+	width: 90%;
+	padding-left: 20px;
+	-webkit-transition: width 2s; /* Safari */
+	transition: width 2s;
+	filter: alpha( opacity = 0);
+	-webkit-transition: 200ms ease;
+	-moz-transition: 200ms ease;
+	-o-transition: 200ms ease;
+	transition: 200ms ease;
+	width: 95%;
+}
+
+#map-canvas-host-baru {
+	width: 100%;
+	height: 250px;
+}
+
+.latlon {
+	width: 80%;
+}
+
+.lat {
+	width: 35%; 
+	float: left;
+}
+.lon {
+	width: 35%;
+	float: right;
+}
+/*END TAMBAH HOST===============================================================================*/
