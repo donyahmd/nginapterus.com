@@ -1,6 +1,6 @@
 <?php 
 	include('backend/layout/head.php');
-		if ($_SESSION['login'] == true){
+		if (isset($_SESSION['login']) == true){
 		header("location:beranda.php");
 	}
 	if (isset($_POST['daftar'])) {

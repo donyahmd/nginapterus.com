@@ -3,28 +3,30 @@
 		if ($_SESSION['login'] == false){
 		header("location:beranda.php");
 		}
-	if (isset($_POST['tambah'])) {
-		$sesi = $_SESSION['username'];
-		$namahost = mysqli_escape_string($koneksi, $_POST['namahost']);
-		$hargahost = mysqli_escape_string($koneksi, $_POST['hargahost']);
-		$deskripsihost = mysqli_escape_string($koneksi, $_POST['deskripsihost']);
-		$alamathost = mysqli_escape_string($koneksi, $_POST['alamathost']);
-		$lat = mysqli_escape_string($koneksi, $_POST['lat']);
-		$lon = mysqli_escape_string($koneksi, $_POST['lon']);
-		$tipehost = mysqli_escape_string($koneksi, $_POST['tipehost']);
+		if (isset($_POST['tambah'])) {
+			$sesi = $_SESSION['username'];
+			$namahost = mysqli_escape_string($koneksi, $_POST['namahost']);
+			$hargahost = mysqli_escape_string($koneksi, $_POST['hargahost']);
+			$deskripsihost = mysqli_escape_string($koneksi, $_POST['deskripsihost']);
+			$alamathost = mysqli_escape_string($koneksi, $_POST['alamathost']);
+			$lat = $_POST['lati'];
+			$lon = $_POST['long'];
+			$tipehost = mysqli_escape_string($koneksi, $_POST['tipehost']);
 
-		$foto_host = $_FILES['foto_host']['name'];
-		$lokasi = $_FILES['foto_host']['tmp_name'];
-		$queri = "SELECT id_host FROM tbl_host ORDER BY id_host DESC limit 1";
-		$ngambil = mysqli_fetch_array($queri);
-		$newhost = $ngambil['id_host']+1;
-		$lokasifoto = "user/$sesi/$newhost";
+			$foto_host = $_FILES['foto_host']['name'];
+			$lokasi = $_FILES['foto_host']['tmp_name'];
+			$queri = "SELECT * FROM tbl_host ORDER BY id_host DESC limit 1";
+			$jalankan = mysqli_query($koneksi,$queri);
+			$ngambil = mysqli_fetch_array($jalankan);
+				$newhost = $ngambil['id_host']+1;
+				$lokasifoto = "user/".$sesi."/".$newhost;
+				mkdir($lokasifoto);
 
-		$upload = move_uploaded_file($lokasi,$lokasifoto."/".$foto_host);
+				$upload = move_uploaded_file($lokasi,$lokasifoto."/".$foto_host);
 
-		$query = "insert into tbl_host values (NULL,'$sesi','$namahost',$hargahost,now(),'$deskripsihost','','$alamathost',$lat,$lon,'$tipehost','INDONESIA',NULL);insert into tbl_gambar_host values ()";
-		$dwad = mysqli_query($koneksi, $query);
-		
+				$query = "insert into tbl_host values (NULL,'$sesi','$namahost',$hargahost,now(),'$deskripsihost','','$alamathost',$lat,$lon,'$tipehost','INDONESIA',1);insert into tbl_gambar_host values (null,$newhost,'$foto_host','$lokasifoto','Gambar Cover')";
+				$aw = mysqli_multi_query($koneksi, $query);
+				var_dump($query);
 		}
 ?>
 	<main>
@@ -55,9 +57,9 @@
 						<b style="font-size:20px;">Lokasi Host</b>
 						<div id="map-canvas-host-baru" style=""></div>
 						<div class="latlon">
-							<div class="lat">Latitude: <input type="text" id='lat' name="lat" disabled="">
+							<div class="lat">Latitude: <input type="text" id='lat' name="lati" readonly="readonly">
 							</div>
-							<div class="lon">Longitude: <input type="text" id='lon' name="lon" disabled="">
+							<div class="lon">Longitude: <input type="text" id='lon' name="long" readonly="readonly">
 							</div>
 						</div>
 					</div>
