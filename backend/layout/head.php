@@ -1,5 +1,6 @@
 <?php 
 	include('backend/php/koneksi.php');
+	include('backend/php/ceklogin.php');
 	session_start();
  ?>
 <!DOCTYPE html>

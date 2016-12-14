@@ -1,15 +1,15 @@
 <?php 
 include('backend/layout/head.php');
-	if ($_SESSION['login'] == false){
-		header("location:masuk.php");
-	}
+jikabelumlogin();
 $id = $_GET['id'];
-$query = "select * from tbl_host inner join tbl_akun on tbl_host.username = tbl_akun.username inner join tbl_pengguna on tbl_akun.username = tbl_pengguna.username where id_host=$id";
+$query = "select * from tbl_host inner join tbl_akun on tbl_host.username = tbl_akun.username inner join tbl_pengguna on tbl_akun.username = tbl_pengguna.username inner join tbl_gambar_host on tbl_host.id_host = tbl_gambar_host.id_host where tbl_host.id_host=$id";
 $sql = mysqli_query($koneksi,$query);
 while ($data = mysqli_fetch_array($sql)) {
 	$nama_host = $data['nama_host'];
 	$username = $data['username'];
 	$foto_ava = $data['foto_ava'];
+	$gambar_host = $data['gambar_host'];
+	$url_gambar_host = $data['url_gambar_host'];
 	if (isset($_POST['booking'])) {
 		$tgl_checkin = $_POST['tgl_checkin'];
 		$tgl_checkout = $_POST['tgl_checkout'];
@@ -18,14 +18,14 @@ while ($data = mysqli_fetch_array($sql)) {
 		$sql2 = mysqli_query($koneksi,$query2);
 		$tampil = mysqli_query($koneksi,"select id_order from tbl_booking_host where username like '". $_SESSION['username'] ."' order by id_order desc limit 1");
 		$tampilkan = mysqli_fetch_array($tampil);
-		header("location:sukses.php?id=" . $tampilkan['id_order'] . "");
+		header("location:order.php?id=" . $tampilkan['id_order'] . "");
 	}
 ?>
 	<main>
 		<section class="host-cover">
 				<h1><?php echo $nama_host;?></h1>
 				<h3><?php echo $username;?></h3>
-				<img src="user/donyahmd/1/1.jpg">
+				<img src="<?php echo $url_gambar_host ."/".$gambar_host ?>">
 		</section>
 		<section class="host-user">
 			<center>

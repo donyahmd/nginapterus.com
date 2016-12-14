@@ -1,13 +1,15 @@
 <?php 
 	include('backend/layout/head.php');
-		if (isset($_SESSION['login']) == true){
-		header("location:beranda.php");
-	}
+	jikasudahlogin();
 	if (isset($_POST['daftar'])) {
-	$username = mysqli_escape_string($koneksi, $_POST['username']);
-	$password = md5(mysqli_escape_string($koneksi, $_POST['password']));
-	$query = "insert into tbl_akun values (NULL,'$username','$password',NOW(),'192.nginapterus',NOW());insert into tbl_pengguna(username) values ('$username');";
-	$dwad = mysqli_multi_query($koneksi, $query);
+		if ($_POST['konpassword'] != $_POST['password']) {
+			echo "<h2>Password Tidak sesuai!</h2>";
+		} else {
+		$username = mysqli_escape_string($koneksi, $_POST['username']);
+		$password = md5(mysqli_escape_string($koneksi, $_POST['password']));
+		$query = "insert into tbl_akun values (NULL,'$username','$password',NOW(),'192.nginapterus',NOW());insert into tbl_pengguna(username,foto_ava) values ('$username','ava.png');";
+		$dwad = mysqli_multi_query($koneksi, $query);
+		}
 	}
 ?>
 	<main>

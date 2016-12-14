@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2016 at 04:58 PM
+-- Generation Time: Dec 14, 2016 at 01:47 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -55,7 +55,7 @@ CREATE TABLE `tbl_akun` (
 --
 
 INSERT INTO `tbl_akun` (`id_akun`, `username`, `password`, `tgl_buat`, `ip_address`, `terakhir_login`) VALUES
-(1, 'donyahmd', '21232f297a57a5a743894a0e4a801fc3', '2016-11-01', '192.168.1.245', '2016-12-10 15:53:10'),
+(1, 'donyahmd', '21232f297a57a5a743894a0e4a801fc3', '2016-11-01', '192.168.1.245', '2016-12-14 12:46:21'),
 (2, 'gx_trouble', 'e00cf25ad42683b3df678c61f42c6bda', '2016-11-02', '235.123.10.12', '2016-11-18 06:38:08'),
 (12, 'donyamddd', '21232f297a57a5a743894a0e4a801fc3', '2016-11-09', '192.12', '2016-11-23 00:53:25'),
 (13, 'donyahmddd', '21232f297a57a5a743894a0e4a801fc3', '2016-11-09', '192.nginapterus', '2016-11-23 00:54:35'),
@@ -74,7 +74,12 @@ INSERT INTO `tbl_akun` (`id_akun`, `username`, `password`, `tgl_buat`, `ip_addre
 (54, '$usern22awdme', '$password', '2016-12-10', '192.nginapterus', '2016-12-10 08:52:00'),
 (55, 'testlagi1', '569ef72642be0fadd711d6a468d68ee1', '2016-12-10', '192.nginapterus', '2016-12-10 08:56:32'),
 (56, 'testbuatuserotomatis', 'ad0390d05082d65fb528335760e618ed', '2016-12-10', '192.nginapterus', '2016-12-10 09:30:55'),
-(57, 'lol', '9cdfb439c7876e703e307864c9167a15', '2016-12-10', '192.nginapterus', '2016-12-10 15:52:58');
+(57, 'lol', '9cdfb439c7876e703e307864c9167a15', '2016-12-10', '192.nginapterus', '2016-12-10 15:52:58'),
+(58, 'C2015', '3121aac7d177d2eaf29f72cbfed0d728', '2016-12-14', '192.nginapterus', '2016-12-14 02:45:40'),
+(59, 'x.wired', '202cb962ac59075b964b07152d234b70', '2016-12-14', '192.nginapterus', '2016-12-14 02:51:04'),
+(60, 'nobody', 'a4ff2ca48e2304cb6f04f33322f3fecb', '2016-12-14', '192.nginapterus', '2016-12-14 03:03:17'),
+(61, 'klawjklj', '2013642426ebd866969feb87aa9a6aa6', '2016-12-14', '192.nginapterus', '2016-12-14 03:05:21'),
+(62, 'lol123', '9cdfb439c7876e703e307864c9167a15', '2016-12-14', '192.nginapterus', '2016-12-14 12:31:29');
 
 -- --------------------------------------------------------
 
@@ -83,12 +88,21 @@ INSERT INTO `tbl_akun` (`id_akun`, `username`, `password`, `tgl_buat`, `ip_addre
 --
 
 CREATE TABLE `tbl_booking_host` (
-  `id_order` int(12) NOT NULL,
+  `id_order` int(12) UNSIGNED ZEROFILL NOT NULL,
   `username` varchar(255) NOT NULL,
   `id_host` int(12) NOT NULL,
   `tgl_checkin` date NOT NULL,
-  `tgl_checkout` date NOT NULL
+  `tgl_checkout` date NOT NULL,
+  `pembayaran` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_booking_host`
+--
+
+INSERT INTO `tbl_booking_host` (`id_order`, `username`, `id_host`, `tgl_checkin`, `tgl_checkout`, `pembayaran`) VALUES
+(000000000010, 'c2015', 13, '2016-12-14', '2016-12-14', 'COD'),
+(000000000011, 'donyahmd', 32, '2016-12-15', '2016-12-16', 'COD');
 
 -- --------------------------------------------------------
 
@@ -109,7 +123,12 @@ CREATE TABLE `tbl_gambar_host` (
 --
 
 INSERT INTO `tbl_gambar_host` (`id_gambar_host`, `id_host`, `gambar_host`, `url_gambar_host`, `alt_gambar_host`) VALUES
-(1, 1, 'kost.jpg', 'user/donyahmd/1/', 'kost contoh');
+(5, 13, 'FB_IMG_1458629204125.jpg', 'user/donyahmd/13', 'Gambar Cover'),
+(6, 14, '3yB27Jq.png', 'user/donyahmd/14', 'Gambar Cover'),
+(7, 15, 'Penginapan_Lisanda.jpg', 'user/donyahmd/15', 'Gambar Cover'),
+(22, 29, 'gb gila.jpg', 'user/donyahmd/29', 'Gambar Cover'),
+(24, 31, '11282818_1436343726671086_1612932569_n.jpg', 'user/donyahmd/31', 'Gambar Cover'),
+(25, 32, 'Penginapan_Saunah3.jpg', 'user/lol123/32', 'Gambar Cover');
 
 -- --------------------------------------------------------
 
@@ -138,11 +157,12 @@ CREATE TABLE `tbl_host` (
 --
 
 INSERT INTO `tbl_host` (`id_host`, `username`, `nama_host`, `harga_host`, `tgl_publish_host`, `deskripsi_host`, `fasilitas_host`, `alamat_host`, `lat`, `lng`, `tipe_host`, `negara_host`, `rating`) VALUES
-(1, 'donyahmd', 'Cozy Homestay', 450000, '2016-11-01', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora veniam beatae, aspernatur aut architecto, obcaecati, delectus in optio id repellendus molestiae, amet soluta natus fugiat nisi nihil at debitis mollitia.', 'AC, SPA, TV, WIFI', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora veniam beatae, aspernatur aut architecto, obcaecati, delectus in optio id repellendus molestiae, amet soluta natus fugiat nisi nihil at debitis mollitia.', -0.488549, 117.156662, 'Home Stay', 'INDONESIA', 4),
-(2, 'donyahmd', 'Anggur Homestay', 250000, '2016-11-01', 'awawadjdwajlwdjlwadjl\r\ndwoaawdawdawdawdawd\r\nawdwadawdawdawd', 'AC, PAM', 'Jl. Anggur', -0.474882, 117.140594, 'Home Stay', 'Indonesia', 2),
-(3, 'gx_trouble', 'Hotel Bamboo', 505000, '2016-11-03', 'awdkandwagdauyhdshdab\r\nrfgdgdgfdggrdgbe', 'AC, PAM', 'dawjdawskdakldhakdhakdh', -0.501433, 117.138596, 'Hotel', 'INDONESIA', 5),
-(4, 'donyahmd', 'Rizal Asrama', 125000, '2016-11-09', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '', 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod\r\ntempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,\r\nquis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo\r\nconsequat. Duis aute irure dolor in reprehenderit in voluptate velit esse\r\ncillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non\r\nproident, sunt in culpa qui officia deserunt mollit anim id est laborum.', -0.496175, 117.164658, 'Asrama', 'INDONESIA', 1),
-(5, 'donyahmd', 'C2015 Host', 999000, '2016-11-08', 'dahbjdnk', 'awdawd', 'wadad', -0.466969, 117.177048, 'Rumah', 'INDONESIA', 3);
+(13, 'donyahmd', 'DAWDAW', 1231312312, '2016-12-14', 'kjlk1jk3lj12kl3j12kl3j2kl', '', '2kjkl2kj2k4jkl2jl', -0.494388, 117.138824, 'kost', 'INDONESIA', 1),
+(14, 'donyahmd', 'Memen Kost1', 689991, '2016-12-14', 'jawdahwjkdajkdahjkdhjkahdkajhdjkh1', '', 'jkadhkjdahjkdhajdahwjkdhjkhwaj1', -0.495633, 117.137154, 'homestay', 'INDONESIA', 1),
+(15, 'donyahmd', 'Rizal Guest House1', 340001, '2016-12-14', 'revisirevisirevisirevisirevisirevisirevisirevisirevisirevisirevisirevisi', '', 'revisirevisirevisirevisirevisirevisirevisi', -0.499023, 117.145607, 'hotel', 'INDONESIA', 1),
+(29, 'donyahmd', 'Doni Homestay', 450000, '2016-12-14', 'awkljalwkjdkajdkkjlaw', '', 'Jl.dawdawldjawldjawjd', -0.504902, 117.141747, 'guesthouse', 'INDONESIA', 1),
+(31, 'donyahmd', 'mlmkmkmkmkma', 232323, '2016-12-15', 'awdkawdjawlkdjawdkawdjawlkdjawdkawdjawlkdjawdkawdjawlkdjawdkawdjawlkdjawdkawdjawlkdjawdkawdjawlkdjawdkawdjawlkdjawdkawdjawlkdjawdkawdjawlkdjawdkawdjawlkdjawdkawdjawlkdj,awdkawdjawlkdjawdkawdjawlkdjawdkawdjawlkdjawdkawdjawlkdj1', '', 'waldjawkldjawkldjkdal1', -0.490720, 117.145782, 'hotel', 'INDONESIA', 1),
+(32, 'lol123', 'Rumah Arif', 340000, '2016-12-14', 'dkjadkawdwaldkjadkawdwaldkjadkawdwaldkjadkawdwaldkjadkawdwaldkjadkawdwaldkjadkawdwaldkjadkawdwaldkjadkawdwaldkjadkawdwaldkjadkawdwaldkjadkawdwal', '', 'dkjadkawdwaldkjadkawdwaldkjadkawdwaldkjadkawdwal', -0.493787, 117.164833, 'homestay', 'INDONESIA', 1);
 
 -- --------------------------------------------------------
 
@@ -163,7 +183,11 @@ CREATE TABLE `tbl_komentar_host` (
 --
 
 INSERT INTO `tbl_komentar_host` (`id_komentar`, `username`, `id_host`, `isi_komentar`, `tgl_dibuat`) VALUES
-(1, 'donyahmd', 2, 'komentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentarkomentar', '2016-11-03');
+(2, 'donyahmd', 15, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent interdum elementum purus, a pulvinar leo congue vel. Nunc aliquam justo cursus sem dapibus dignissim. Donec aliquam urna nulla, quis suscipit mauris laoreet in. Vivamus eu nibh ligula. Vivamus eros risus, porttitor nec ante venenatis, egestas vulputate dui. Nam nec sollicitudin sem, nec pulvinar turpis. Vivamus libero ipsum, blandit ac sapien a, interdum molestie massa. Proin placerat eleifend faucibus. Vestibulum erat turpis, malesuada sit amet elementum ac, iaculis quis tortor. Cras semper, tortor eget lobortis lacinia, arcu ligula feugiat lacus, vel blandit diam purus sed quam. Pellentesque vitae dolor vitae mi ornare varius. Nulla dolor eros, congue eget fringilla sed, accumsan vel quam. Nullam vulputate imperdiet augue et pellentesque.', '2016-12-15'),
+(3, 'donyahmd', 15, 'test komentar', '2016-12-14'),
+(4, 'donyahmd', 15, 'test lagi', '2016-12-14'),
+(11, 'lol123', 29, 'awkajldjalkja', '2016-12-14'),
+(14, 'lol123', 29, 'akjdakljdkawlaw12345', '2016-12-14');
 
 -- --------------------------------------------------------
 
@@ -193,10 +217,15 @@ CREATE TABLE `tbl_pengguna` (
 --
 
 INSERT INTO `tbl_pengguna` (`username`, `nik_ktp_pengguna`, `nama_pengguna`, `no_hp`, `tempat_lahir`, `tgl_lahir`, `alamat`, `pekerjaan`, `kewarganegaraan`, `foto_ava`, `foto_ktp`, `verifikasi`, `tgl_dibuat`, `tgl_diedit`) VALUES
+('C2015', NULL, '', '', '', '0000-00-00', '', '', '', NULL, NULL, 0, '0000-00-00', '0000-00-00'),
 ('donyahmd', '6472052511960004', 'DONI AHMAD', '082251614616', 'SAMARINDA', '1996-11-25', 'JL. LAMBUNG MANGKURAT GG.3 BLOK B NO.29A RT.25 KELURAHAN PELITA KECAMATAN SAMARINDA ILIR', 'MAHASISWA', 'INDONESIA', '1.jpg', '6472052511960004-doniahmad.jpg', 1, '2016-08-16', '2016-11-02'),
 ('gx_trouble', '9999999999', 'Arif Dwi', '', 'SAMARINDA', '1997-07-03', 'AUWHDAKJDNAWDHJDWHJNAWJDADAKJAFESJFENFEJ\r\nWEWFJNEWFNWFJWENFKJWENFWEK', 'MAHASISWA', 'INDONESIA', '2.jpg', 'arif-dwi-ktp.jpg', 0, '2016-11-03', '0000-00-00'),
+('klawjklj', NULL, '', '', '', '0000-00-00', '', '', '', NULL, NULL, 0, '0000-00-00', '0000-00-00'),
 ('lol', NULL, '', '', '', '0000-00-00', '', '', '', NULL, NULL, 0, '0000-00-00', '0000-00-00'),
-('testbuatuserotomatis', NULL, '', '', '', '0000-00-00', '', '', '', NULL, NULL, 0, '0000-00-00', '0000-00-00');
+('lol123', NULL, '', '', '', '0000-00-00', '', '', '', 'ava.png', NULL, 0, '0000-00-00', '0000-00-00'),
+('nobody', NULL, '', '', '', '0000-00-00', '', '', '', NULL, NULL, 0, '0000-00-00', '0000-00-00'),
+('testbuatuserotomatis', NULL, '', '', '', '0000-00-00', '', '', '', NULL, NULL, 0, '0000-00-00', '0000-00-00'),
+('x.wired', NULL, '', '', '', '0000-00-00', '', '', '', NULL, NULL, 0, '0000-00-00', '0000-00-00');
 
 --
 -- Indexes for dumped tables
@@ -267,27 +296,27 @@ ALTER TABLE `tbl_admin`
 -- AUTO_INCREMENT for table `tbl_akun`
 --
 ALTER TABLE `tbl_akun`
-  MODIFY `id_akun` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id_akun` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 --
 -- AUTO_INCREMENT for table `tbl_booking_host`
 --
 ALTER TABLE `tbl_booking_host`
-  MODIFY `id_order` int(12) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_order` int(12) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tbl_gambar_host`
 --
 ALTER TABLE `tbl_gambar_host`
-  MODIFY `id_gambar_host` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_gambar_host` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `tbl_host`
 --
 ALTER TABLE `tbl_host`
-  MODIFY `id_host` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_host` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `tbl_komentar_host`
 --
 ALTER TABLE `tbl_komentar_host`
-  MODIFY `id_komentar` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_komentar` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- Constraints for dumped tables
 --

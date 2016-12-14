@@ -1,7 +1,5 @@
 <?php include('backend/layout/head.php');
-	if (isset($_SESSION['login']) == true){
-		header("location:beranda.php");
-	}
+	jikasudahlogin();
 	if(isset($_POST['masuk'])) {
 		$username = mysqli_real_escape_string($koneksi, $_POST['username']);
 		$password = mysqli_real_escape_string($koneksi, $_POST['password']);

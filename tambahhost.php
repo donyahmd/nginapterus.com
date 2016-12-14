@@ -1,8 +1,6 @@
 <?php 
 	include('backend/layout/head.php');
-		if ($_SESSION['login'] == false){
-		header("location:beranda.php");
-		}
+		jikabelumlogin();
 		if (isset($_POST['tambah'])) {
 			$sesi = $_SESSION['username'];
 			$namahost = mysqli_escape_string($koneksi, $_POST['namahost']);
@@ -12,21 +10,24 @@
 			$lat = $_POST['lati'];
 			$lon = $_POST['long'];
 			$tipehost = mysqli_escape_string($koneksi, $_POST['tipehost']);
-
 			$foto_host = $_FILES['foto_host']['name'];
 			$lokasi = $_FILES['foto_host']['tmp_name'];
+			
+
+			$query = "insert into tbl_host values (NULL,'$sesi','$namahost',$hargahost,now(),'$deskripsihost','','$alamathost',$lat,$lon,'$tipehost','INDONESIA',1)";
+			mysqli_query($koneksi, $query);
+
 			$queri = "SELECT * FROM tbl_host ORDER BY id_host DESC limit 1";
 			$jalankan = mysqli_query($koneksi,$queri);
 			$ngambil = mysqli_fetch_array($jalankan);
-				$newhost = $ngambil['id_host']+1;
-				$lokasifoto = "user/".$sesi."/".$newhost;
-				mkdir($lokasifoto);
+			$newhost = $ngambil['id_host'];
+			$lokasifoto = "user/$sesi/$newhost";
+			mkdir($lokasifoto);
+			move_uploaded_file($lokasi,$lokasifoto."/".$foto_host);
 
-				$upload = move_uploaded_file($lokasi,$lokasifoto."/".$foto_host);
+			$query2 = "insert into tbl_gambar_host values (null,$newhost,'$foto_host','$lokasifoto','Gambar Cover')";
+			mysqli_query($koneksi, $query2);
 
-				$query = "insert into tbl_host values (NULL,'$sesi','$namahost',$hargahost,now(),'$deskripsihost','','$alamathost',$lat,$lon,'$tipehost','INDONESIA',1);insert into tbl_gambar_host values (null,$newhost,'$foto_host','$lokasifoto','Gambar Cover')";
-				$aw = mysqli_multi_query($koneksi, $query);
-				var_dump($query);
 		}
 ?>
 	<main>
@@ -107,7 +108,7 @@
                 document.getElementById("lon").value = clickLon.toFixed(6);
 
 
-                  placeMarker(event.latLng);
+                placeMarker(event.latLng);
             });
 
         }         
